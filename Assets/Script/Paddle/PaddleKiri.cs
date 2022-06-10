@@ -39,6 +39,7 @@ public class PaddleKiri : MonoBehaviour
 
     private void MoveObject(Vector2 movement)
     {
+        Debug.Log("Test: " + movement);
         rig.velocity = movement;
     }
 }
