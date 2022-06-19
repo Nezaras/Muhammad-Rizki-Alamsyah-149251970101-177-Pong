@@ -15,4 +15,9 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Created By Muhammad Rizki Alamsyah-149251970101-177");
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

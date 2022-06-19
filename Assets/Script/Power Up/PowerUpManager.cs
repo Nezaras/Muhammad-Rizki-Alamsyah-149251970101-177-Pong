@@ -9,6 +9,12 @@ public class PowerUpManager : MonoBehaviour
     public Vector2 powerUpAreaMin;
     public Vector2 powerUpAreaMax;
     public int spawnInterval;
+    public GameObject paddle;
+
+    private float durationScaleUpPad;
+    public bool activationScaleUpPad = false;
+
+
     private float timer;
     private List<GameObject> powerUpList;
     public List<GameObject> powerUpTemplateList;
@@ -28,6 +34,17 @@ public class PowerUpManager : MonoBehaviour
         {
             GenerateRandomPowerUp();
             timer -= spawnInterval;
+        }
+
+        if (activationScaleUpPad == true)
+        {
+            if (durationScaleUpPad >= 5)
+            {
+                paddle.GetComponent<PaddleController>().ScaleDown(paddle);
+                activationScaleUpPad = false;
+                durationScaleUpPad -= 5;
+            }
+            durationScaleUpPad += Time.deltaTime;
         }
     }
 

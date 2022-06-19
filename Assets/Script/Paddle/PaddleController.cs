@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaddleKanan : MonoBehaviour
+public class PaddleController : MonoBehaviour
 {
     public int speed;
     public KeyCode upKey;
@@ -39,7 +39,23 @@ public class PaddleKanan : MonoBehaviour
 
     private void MoveObject(Vector2 movement)
     {
-        Debug.Log("Test: " + movement);
         rig.velocity = movement;
+        Debug.Log("Test: " + movement);
+    }
+
+    public void ActivateScale(GameObject paddle)
+    {
+
+        paddle.transform.localScale += new Vector3(0, paddle.transform.localScale.y, 0);
+    }
+
+    public void ScaleDown(GameObject paddle)
+    {
+        paddle.transform.localScale -= new Vector3(0, paddle.transform.localScale.y / 2, 0);
+    }
+
+    public void ActivateSpeed()
+    {
+        speed *= 3;
     }
 }
